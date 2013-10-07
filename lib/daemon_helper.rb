@@ -37,7 +37,7 @@ extend self
         
         
 
-        raise Exception.new("#{post.code} #{post.body}") unless [302,200,201].include?(post.code)
+        raise Exception.new("#{post.code} #{post.body}") unless [302,200,201].include?(post.code.to_i)
     
 
         PullRequest.create(sha: sha, ref: ref)
