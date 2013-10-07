@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
-require 'daemon_helper'
 
 # You might want to change this
 ENV["RAILS_ENV"] ||= "production"
@@ -9,7 +8,11 @@ root = File.dirname(root) until File.exists?(File.join(root, 'config'))
 Dir.chdir(root)
 
 require File.join(root, "config", "environment")
-
+require File.join(root, "lib", "daemon_helper")
+require 'bundler'
+require 'active_support/dependencies'
+require 'active_record'
+require 'active_support/buffered_logger'
 Rails.logger = ActiveSupport::BufferedLogger.new(Rails.root.join('log',"pull_requests.#{Rails.env}.log"))
 if Rails.env.production?
   Rails.logger.level = ActiveSupport::BufferedLogger::Severity::INFO
