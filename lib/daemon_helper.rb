@@ -24,6 +24,7 @@ extend self
 
         sha = pull.head.sha
         ref = pull.head.ref
+        url = pull.url
 
         next if PullRequest.find_by_sha(sha)
 
@@ -32,7 +33,7 @@ extend self
             {'GIT_SHA1'=>sha,
              'GIT_BASE_REPO' => base_repo,
              'GIT_HEAD_REPO' => base_repo,
-             'GITHUB_URL' => '' }
+             'GITHUB_URL' => url }
           )
         
         
