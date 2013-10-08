@@ -24,7 +24,7 @@ extend self
 
         sha = pull.head.sha
         ref = pull.head.ref
-        url = pull.url
+        url = pull.html_url
 
         next if PullRequest.find_by_sha(sha)
 
