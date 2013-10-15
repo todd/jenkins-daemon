@@ -1,13 +1,15 @@
 common: &common
   github:
-    user: 
-    password: 
-    token: 
-    repo: 
-    organization: 
+    user:
+    password:
+    token:
+    repos:
+      - name:
+        job:
+    organization:
 
   jenkins:
-    url: 
+    base_url:
 
 
 development:
